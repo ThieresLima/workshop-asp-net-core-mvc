@@ -153,3 +153,4 @@ C:\Users\thier\Desktop\Projeto MVC\SalesWebMvc\SalesWebMvc\obj\Debug\netcoreapp3
 C:\Users\thier\Desktop\Projeto MVC\SalesWebMvc\SalesWebMvc\obj\Debug\netcoreapp3.0\Razor\Views\Sellers\Create.cshtml.g.cs
 C:\Users\thier\Desktop\Projeto MVC\SalesWebMvc\SalesWebMvc\obj\Debug\netcoreapp3.0\Razor\Views\Sellers\Delete.cshtml.g.cs
 C:\Users\thier\Desktop\Projeto MVC\SalesWebMvc\SalesWebMvc\obj\Debug\netcoreapp3.0\Razor\Views\Sellers\Details.cshtml.g.cs
+C:\Users\thier\Desktop\Projeto MVC\SalesWebMvc\SalesWebMvc\obj\Debug\netcoreapp3.0\Razor\Views\Sellers\Edit.cshtml.g.cs
