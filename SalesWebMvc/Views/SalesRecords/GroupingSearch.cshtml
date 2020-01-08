@@ -1,7 +1,58 @@
-﻿
+﻿@model IEnumerable<IGrouping<Department, SalesRecord>>
+
 @{
     ViewData["Title"] = "Grouping Search";
+    DateTime minDate = DateTime.Parse(ViewData["minDate"] as string);
+    DateTime maxDate = DateTime.Parse(ViewData["maxDate"] as string);
 }
 
 <h2>@ViewData["Title"]</h2>
 
+<nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">
+        <form class="form-inline form-row">
+            <div class="pl-2 form-row">
+                <label for="minDate">Min Date</label>
+                <input class="form-control mr-sm-2" type="Date" name="minDate" value=@ViewData["minDate"]>
+            </div>
+            <div class=" pl-2 form-row">
+                <label for="maxDate">Max Date</label>
+                <input class="form-control mr-sm-2" type="Date" name="maxDate" value=@ViewData["maxDate"]>
+            </div>
+            <button type="submit" class="btn btn-primary px-2">Filter</button>
+        </form>
+    </div>
+</nav>
+
+@foreach (var departmentGroup in Model)
+{
+    <div class="mt-4">
+        <div class="bg-info">
+            <h3 class="text-white">Department @departmentGroup.Key.Name, sales = @departmentGroup.Key.TotalSales(minDate, maxDate).ToString("F2")</h3>
+        </div>
+    </div>
+
+    <div>
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Seller</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in departmentGroup)
+                {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Seller.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
